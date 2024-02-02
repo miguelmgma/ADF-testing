@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "db-coursee-adf"
+		},
+		"ls_covid_adfcourse_stge_blob_connectionString": {
+			"value": ""
+		},
+		"ls_covid_adfcourse_stge_dl_accountKey": {
+			"value": ""
+		},
+		"ls_f1_storage_accountKey": {
+			"value": ""
+		},
+		"ls_sql_covid_db_connectionString": {
+			"value": ""
+		},
+		"ls_covid_adfcourse_stge_dl_properties_typeProperties_url": {
+			"value": "https://covidadfcoursedl.dfs.core.windows.net/"
+		},
+		"ls_covid_http_github_properties_typeProperties_url": {
+			"value": "@{linkedService().sourceBaseURL}"
+		},
+		"ls_dbcks_course_properties_typeProperties_existingClusterId": {
+			"value": "1120-134324-23oo03m9"
+		},
+		"ls_f1_storage_properties_typeProperties_url": {
+			"value": "https://formula1dldbcoursee.dfs.core.windows.net/"
+		},
+		"tr_population_blob_to_dl_properties_typeProperties_scope": {
+			"value": "/subscriptions/862554db-3cbc-4c84-9778-0c67a489d98e/resourceGroups/covid-adfcourse-rg/providers/Microsoft.Storage/storageAccounts/covidadfcoursesa"
+		},
+		"tr_process_f1_data_properties_pipeline_parameters_p_window_end_date": {
+			"value": "@trigger().outputs.windowEndTime"
+		}
+	}
+}
