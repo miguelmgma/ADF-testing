@@ -1,0 +1,34 @@
+{
+	"name": "tr_process_sql",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "pl_execute_sql",
+				"type": "PipelineReference"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Hour",
+			"interval": 24,
+			"startTime": "2024-01-25T15:00:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": [
+				{
+					"type": "TumblingWindowTriggerDependencyReference",
+					"offset": "-4.15:00:00",
+					"referenceTrigger": {
+						"referenceName": "tr_process_f1_data",
+						"type": "TriggerReference"
+					}
+				}
+			]
+		}
+	}
+}

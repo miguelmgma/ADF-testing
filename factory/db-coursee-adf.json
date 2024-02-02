@@ -1,0 +1,9 @@
+{
+	"name": "db-coursee-adf",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e65689f1-bfc5-4cca-9cd4-e435b1cadff9",
+		"tenantId": "a0f8d834-7420-422f-96be-1e425a15f0f7"
+	}
+}

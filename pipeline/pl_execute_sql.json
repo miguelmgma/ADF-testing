@@ -1,0 +1,68 @@
+{
+	"name": "pl_execute_sql",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute process cases",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_process_cases_dataflow",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Execute  process hospital",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_process_hospital_dataflow",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Execute sql",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Execute process cases",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_process_dta_to sql",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "covid-adfcourse/process to sql"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-01-25T11:43:40Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

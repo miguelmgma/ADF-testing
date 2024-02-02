@@ -1,0 +1,29 @@
+{
+	"name": "dt_covid_population_gz",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_covid_adfcourse_stge_blob",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "covid-adfcourse"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "population_by_age.tsv.gz",
+				"container": "population"
+			},
+			"columnDelimiter": "\t",
+			"compressionCodec": "gzip",
+			"compressionLevel": "Optimal",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
